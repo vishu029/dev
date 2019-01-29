@@ -1,6 +1,6 @@
 # Creating a subnet
 module "subnet_grp_pci_appgat" {
-  source   = "git::https://git@github.com:vishu029/dev.git//devops-module-stack/azure/network/"
+  source   = "git::https://github.com:vishu029/dev.git//devops-module-stack/azure/network/"
   address_spaces       = "${var.subnet_address_spaces_pci_appgat}"
   name                 = ["devops-${var.environment}-${var.region}-${var.subnet_name_pci_appgat}"]
   resource_group_name  = "devops-${var.environment}-${var.region}-${var.vnet_rg_name}"
@@ -10,7 +10,7 @@ module "subnet_grp_pci_appgat" {
 
 # Creating Network Security Group and Rules
 module "network_security_group_pci_appgat" {
-  source = "git::https://git@github.com:vishu029/dev.git//devops-module-stack/azure/security"
+  source = "git::https://github.com:vishu029/dev.git//devops-module-stack/azure/security"
   security_group_name            = "devops-${var.environment}-${var.region}-${var.nsg_name_pci_appgat}"
   location                       = "${var.location}"
   resource_group_name            = "${module.resource_group.name}"
