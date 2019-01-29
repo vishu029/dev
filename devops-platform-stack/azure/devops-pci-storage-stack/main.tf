@@ -14,7 +14,6 @@ module "storage_group" {
   location                       = "${var.location}"
   resource_group_name            = "${module.resource_group.name}"
   storage_account_kind           = "${var.storage_account_kind}"
-  storage_account_type           = "${var.storage_account_type}"
   storage_enable_blob_encryption = "${var.storage_enable_blob_encryption}"
   container_names                = ["${var.environment}-${var.region}-${var.container_names[0]}", "${var.environment}-${var.region}-${var.container_names[1]}"]
 }
