@@ -1,9 +1,3 @@
-# For creating the remote state storage
-terraform {
-  backend "azurerm" {
-  }
-}
-
 # Creating a resource group for associating further resources with it.
 module "resource_group" {
   source   = "git::https://github.com/vishu029/dev.git//devops-module-stack/azure/common/resource-group"
