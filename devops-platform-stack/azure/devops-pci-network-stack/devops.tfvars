@@ -6,7 +6,7 @@ region = "eun"
 vnet_address_space = "10.105.32.0/20"
 
 #subnet address spaces
-subnet_address_spaces_pci = ["10.105.33.0/24"]
+subnet_address_spaces_pci_appgat = ["10.105.33.0/24"]
 
 #pcigate subnet security group and rules
 nsg_name_pci_appgat = "pci-appgw-nsg-0001"
