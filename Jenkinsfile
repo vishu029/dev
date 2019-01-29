@@ -67,7 +67,7 @@ pipeline {
         }
         stage('workspace-terraform') {
             steps {
-                sh 'cd ${WORKDIR_CMD} && terraform workspace $WS $ENV-$WSNAME'
+                sh 'cd ${WORKDIR_CMD}'
             }
         }
         stage('deploy-terraform') {
