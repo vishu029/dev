@@ -7,7 +7,7 @@ pipeline {
     parameters {
         choice(
             name: 'select_env',
-            choices: 'prod\ndev'
+            choices: 'prod\ndev',
             description: 'select the environment names'
         )
         choice(
