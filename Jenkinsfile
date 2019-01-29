@@ -60,7 +60,7 @@ pipeline {
         }
         stage('init-terraform') {
             steps {
-                sh 'cd ${WORKDIR_CMD} && terraform init 
+                sh 'cd ${WORKDIR_CMD} && terraform init'
             }
         }
         stage('workspace-terraform') {
