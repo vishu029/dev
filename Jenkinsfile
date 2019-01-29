@@ -7,7 +7,7 @@ pipeline {
     parameters {
         choice(
             name: 'select_env',
-            choices: 'prod\nsit2\npt\nvnp',
+            choices: 'prod\ndev'
             description: 'select the environment names'
         )
         choice(
@@ -17,12 +17,12 @@ pipeline {
         )
         choice(
             name: 'ws_name',
-            choices: 'ihs-api',
+            choices: 'dev_pci',
             description: 'workspace name for terraform to run'
         )
         choice(
             name: 'tfvarsfiles',
-            choices: 'sit2.tfvars\nvnp.tfvars',
+            choices: 'devops.tfvars\ncore.tfvars',
             description: 'select terraform parameters file to run'
         )
 
@@ -44,12 +44,13 @@ pipeline {
         DEPLOYMENT  = "${params.deploy}"
         TFVARSFILE  = "${params.tfvarsfiles}"
         APPROVE     = "${params.approvals}"
-        ARM_SUBSCRIPTION_ID  = credentials("ARM_subscription_id")
-        ARM_CLIENT_ID       = credentials("ARM_client_id")
-        ARM_CLIENT_SECRET   = credentials("ARM_clientsecret_id")
-        ARM_TENANT_ID       = credentials("ARM_tenant_id")
-        STORAGE_ACCOUNT_KEY = credentials("access_key_storageacc_prodeunnonpcisada0001")
-        WORKDIR_CMD         = '/var/jenkins/workspace/terraform-ihs-api-pipeline/azure_managed/dotcom-ihs-wcs-live-stack/dotcom-ihswcs-apiliv-vm'
+        ARM_SUBSCRIPTION_ID  = credentials("ARM_SUBSCRIPTION_ID")
+        ARM_CLIENT_ID       = credentials("ARM_CLIENT_ID")
+        ARM_CLIENT_SECRET   = credentials("ARM_CLIENT_SECRET")
+        ARM_TENANT_ID       = credentials("ARM_TENANT_ID")
+        STORAGE_ACCOUNT_KEY = credentials("STORAGE_ACCOUNT_KEY")
+        WORKDIR_CMD         = '/var/jenkins/workspace/dev_pipeline/devops-platform-stack/azure/devops-pci-storage-stack/'
+		WORKDIR_CMD_NET='/var/jenkins/workspace/dev_pipeline/devops-platform-stack/azure/devops-pci-network-stack/'
     }
     stages {
         stage('checkout-repo') {
@@ -59,7 +60,7 @@ pipeline {
         }
         stage('init-terraform') {
             steps {
-                sh 'cd ${WORKDIR_CMD} && terraform init -backend-config="key=state-file" -backend-config="storage_account_name=prodeunnonpcisada0001" -backend-config="container_name=prod-eun-tfstat-blob-001" -backend-config="access_key=$STORAGE_ACCOUNT_KEY"'
+                sh 'cd ${WORKDIR_CMD} && terraform init 
             }
         }
         stage('workspace-terraform') {
