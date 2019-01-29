@@ -6,7 +6,7 @@ terraform {
 
 # Creating a resource group for associating further resources with it.
 module "resource_group" {
-  source   = "git::https://git@github.com:vishu029/devops.git//devops-module-stack/azure/resource-group"
+  source   = "git::https://git@github.com:vishu029/devops.git//devops-module-stack/azure/common/resource-group"
   name     = "devops-${var.environment}-${var.region}-${var.vnet_rg_name}"
   location = "${var.location}"
 }
