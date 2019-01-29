@@ -16,7 +16,7 @@ variable "resource_group_name" {
 ### storage variables
 
 variable "storage_account_name" {
-  default     = "pcisada0001"
+  default     = "pcisada000001"
   description = "Dotcom common Storage Account name. It will keep installables, terraform states etc"
 }
 
