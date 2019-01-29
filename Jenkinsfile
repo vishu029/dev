@@ -49,8 +49,8 @@ pipeline {
         ARM_CLIENT_SECRET   = credentials("ARM_CLIENT_SECRET")
         ARM_TENANT_ID       = credentials("ARM_TENANT_ID")
         STORAGE_ACCOUNT_KEY = credentials("STORAGE_ACCOUNT_KEY")
-        WORKDIR_CMD         = '/var/jenkins/workspace/dev_pipeline/devops-platform-stack/azure/devops-pci-storage-stack/'
-		WORKDIR_CMD_NET='/var/jenkins/workspace/dev_pipeline/devops-platform-stack/azure/devops-pci-network-stack/'
+        WORKDIR_CMD         = '/var/lib/jenkins/workspace/dev_pipeline/devops-platform-stack/azure/devops-pci-storage-stack/'
+		WORKDIR_CMD_NET='/var/lib/jenkins/workspace/dev_pipeline/devops-platform-stack/azure/devops-pci-network-stack/'
     }
     stages {
         stage('checkout-repo') {
