@@ -1,3 +1,3 @@
 environment = "core"
-region = "Central India"
-location = "Central India"
+region = "eun"
+location = "North Europe"
